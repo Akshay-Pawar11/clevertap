@@ -1,0 +1,37 @@
+# Local Terraform directories
+.terraform/
+
+# Terraform state files (may contain secrets)
+*.tfstate
+*.tfstate.backup
+*.tfstate.*.backup
+
+# Ignore CLI override files which are local-only
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# If you use env files to store secrets
+.env
+.env.*.local
+
+# Local editor / OS files
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Terraform plan output
+*.tfplan
+
+# Optional: terraform graph output
+*.gv
+
+# Ignore auto-generated files from some tools (terraformer etc.)
+.terraformrc
+terraform.rc
