@@ -10,6 +10,7 @@ resource "aws_vpc" "my-vpc" {
 resource "aws_subnet" "public-subnet-1a" {
   vpc_id     = aws_vpc.my-vpc.id
   cidr_block = var.public-subnet-1a-cidr
+  availability_zone = "ap-south-1a"
   tags = {
     "Name" = "public-subnet-1a"
   }
@@ -17,6 +18,7 @@ resource "aws_subnet" "public-subnet-1a" {
 resource "aws_subnet" "public-subnet-2b" {
   vpc_id     = aws_vpc.my-vpc.id
   cidr_block = var.public-subnet-2b-cidr
+  availability_zone = "ap-south-1b"
   tags = {
     "Name" = "public-subnet-2b"
   }
@@ -24,6 +26,7 @@ resource "aws_subnet" "public-subnet-2b" {
 resource "aws_subnet" "private-subnet-1a" {
   vpc_id     = aws_vpc.my-vpc.id
   cidr_block = var.private-subnet-1a-cidr
+  availability_zone = "ap-south-1a"
   tags = {
     "Name" = "private-subnet-1a"
   }
@@ -31,6 +34,7 @@ resource "aws_subnet" "private-subnet-1a" {
 resource "aws_subnet" "private-subnet-2b" {
   vpc_id     = aws_vpc.my-vpc.id
   cidr_block = var.private-subnet-2b-cidr
+  availability_zone = "ap-south-1b"
   tags = {
     "Name" = "private-subnet-2b"
   }
