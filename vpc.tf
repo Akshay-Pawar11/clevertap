@@ -8,32 +8,32 @@ resource "aws_vpc" "my-vpc" {
 
 #Creating Subnets
 resource "aws_subnet" "public-subnet-1a" {
-  vpc_id     = aws_vpc.my-vpc.id
-  cidr_block = var.public-subnet-1a-cidr
+  vpc_id            = aws_vpc.my-vpc.id
+  cidr_block        = var.public-subnet-1a-cidr
   availability_zone = "ap-south-1a"
   tags = {
     "Name" = "public-subnet-1a"
   }
 }
 resource "aws_subnet" "public-subnet-2b" {
-  vpc_id     = aws_vpc.my-vpc.id
-  cidr_block = var.public-subnet-2b-cidr
+  vpc_id            = aws_vpc.my-vpc.id
+  cidr_block        = var.public-subnet-2b-cidr
   availability_zone = "ap-south-1b"
   tags = {
     "Name" = "public-subnet-2b"
   }
 }
 resource "aws_subnet" "private-subnet-1a" {
-  vpc_id     = aws_vpc.my-vpc.id
-  cidr_block = var.private-subnet-1a-cidr
+  vpc_id            = aws_vpc.my-vpc.id
+  cidr_block        = var.private-subnet-1a-cidr
   availability_zone = "ap-south-1a"
   tags = {
     "Name" = "private-subnet-1a"
   }
 }
 resource "aws_subnet" "private-subnet-2b" {
-  vpc_id     = aws_vpc.my-vpc.id
-  cidr_block = var.private-subnet-2b-cidr
+  vpc_id            = aws_vpc.my-vpc.id
+  cidr_block        = var.private-subnet-2b-cidr
   availability_zone = "ap-south-1b"
   tags = {
     "Name" = "private-subnet-2b"
@@ -91,21 +91,21 @@ resource "aws_route_table" "my-route-table-private" {
 
 #Subnet Association with Route Table
 resource "aws_route_table_association" "public-subnet-1a" {
-    subnet_id = aws_subnet.public-subnet-1a.id
-    route_table_id = aws_route_table.my-route-table-public.id
+  subnet_id      = aws_subnet.public-subnet-1a.id
+  route_table_id = aws_route_table.my-route-table-public.id
 }
 
 resource "aws_route_table_association" "public-subnet-2b" {
-    subnet_id = aws_subnet.public-subnet-2b.id
-    route_table_id = aws_route_table.my-route-table-public.id
+  subnet_id      = aws_subnet.public-subnet-2b.id
+  route_table_id = aws_route_table.my-route-table-public.id
 }
 
 resource "aws_route_table_association" "private-subnet-1a" {
-    subnet_id = aws_subnet.private-subnet-1a.id
-    route_table_id = aws_route_table.my-route-table-private.id
+  subnet_id      = aws_subnet.private-subnet-1a.id
+  route_table_id = aws_route_table.my-route-table-private.id
 }
 
 resource "aws_route_table_association" "private-subnet-2b" {
-    subnet_id = aws_subnet.private-subnet-2b.id
-    route_table_id = aws_route_table.my-route-table-private.id
+  subnet_id      = aws_subnet.private-subnet-2b.id
+  route_table_id = aws_route_table.my-route-table-private.id
 }

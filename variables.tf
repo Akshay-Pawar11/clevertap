@@ -16,3 +16,10 @@ variable "bastion_ami" {}
 variable "bastion_instance" {}
 variable "launch_temp_name" {}
 variable "domain" {}
+
+variable "db_name" {}
+variable "db_user" {}
+variable "db_password" {}
+variable "db_host" {}
+
+variable "my_ip" {}

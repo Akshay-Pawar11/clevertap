@@ -26,24 +26,24 @@ resource "aws_lb_listener" "my_alb_wp" {
 
 #ALB Listners for hostheader in 80 port
 resource "aws_lb_listener_rule" "host-listner" {
-    listener_arn = aws_lb_listener.my_alb_wp.arn
-    priority     = 1
+  listener_arn = aws_lb_listener.my_alb_wp.arn
+  priority     = 1
 
-    action {
+  action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.my-wp-tg.arn
-    
-    }
 
-    condition {
+  }
+
+  condition {
     host_header {
       values = [aws_lb.my_alb_wp.dns_name]
     }
-    }
+  }
 
-    tags = {
-      "Name" = "wordpress"
-    }
+  tags = {
+    "Name" = "wordpress"
+  }
 
 }
 
