@@ -14,7 +14,8 @@ resource "aws_launch_template" "my_wp_lt" {
     db_name     = var.db_name
     db_user     = var.db_user
     db_password = var.db_password
-    db_host     = var.db_host
+    db_host     = aws_db_instance.wordpress.address
+
   }))
 
   tag_specifications {
@@ -27,9 +28,9 @@ resource "aws_launch_template" "my_wp_lt" {
 
 resource "aws_autoscaling_group" "wp_asg" {
   name                = "wp-asg"
-  desired_capacity    = 1
-  min_size            = 1
-  max_size            = 1
+  desired_capacity    = 2
+  min_size            = 2
+  max_size            = 2
   vpc_zone_identifier = [aws_subnet.private-subnet-1a.id]
 
   launch_template {

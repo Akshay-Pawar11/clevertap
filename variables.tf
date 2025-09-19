@@ -11,15 +11,17 @@ variable "ig_name" {}
 variable "alb_name" {}
 variable "alb_type" {}
 variable "tg_name" {}
-variable "bastion_host_name" {}
-variable "bastion_ami" {}
-variable "bastion_instance" {}
-variable "launch_temp_name" {}
-variable "domain" {}
+# variable "bastion_host_name" {}
+# variable "bastion_ami" {}
+# variable "bastion_instance" {}
+# variable "launch_temp_name" {}
+# variable "domain" {}
 
 variable "db_name" {}
 variable "db_user" {}
 variable "db_password" {}
-variable "db_host" {}
 
 variable "my_ip" {}
+
+variable "db_root_username" {}
+variable "db_root_password" {}
