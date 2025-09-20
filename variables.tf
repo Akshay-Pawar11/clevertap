@@ -25,3 +25,6 @@ variable "my_ip" {}
 
 variable "db_root_username" {}
 variable "db_root_password" {}
+
+variable "bucket_name" {}
+variable "be_tg_name" {}

@@ -34,7 +34,5 @@ EOL
 
 chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
-
+rm -f /var/www/html/index.html
 systemctl restart apache2
-
-# Just create DB akshay_wp_db in RDS
