@@ -63,7 +63,7 @@ resource "aws_lb_target_group" "my-wp-tg" {
   }
 }
 
-#ALB Listners for hostheader in 80 port
+#ALB Listners for BE
 resource "aws_lb_listener_rule" "be-host-listner" {
   listener_arn = aws_lb_listener.my_alb_wp.arn
   priority     = 2
@@ -91,4 +91,50 @@ resource "aws_lb_target_group" "my-be-tg" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.my-vpc.id
+}
+
+#ALB Listners for FE
+resource "aws_lb_listener_rule" "fe-host-listner" {
+  listener_arn = aws_lb_listener.my_alb_wp.arn
+  priority     = 3
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.my-fe-tg.arn
+
+  }
+
+  condition {
+    host_header {
+      values = [aws_lb.my_alb_wp.dns_name]
+    }
+  }
+
+  condition {
+    path_pattern {
+      values = ["/homepage*"]
+    }
+  }
+
+
+  tags = {
+    "Name" = "fe"
+  }
+
+}
+
+resource "aws_lb_target_group" "my-fe-tg" {
+  name     = var.fe_tg_name
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.my-vpc.id
+  
+  health_check {
+    path                = "/homepage"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    matcher             = "200"
+  }
 }

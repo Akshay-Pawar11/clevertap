@@ -15,6 +15,12 @@ def init_db():
             password TEXT NOT NULL
         )
     """)
+
+    cursor.execute("SELECT * FROM users WHERE username=?", ("test",))
+    if not cursor.fetchone():
+        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", ("test", "test@123"))
+        print("Inserted default user: test / test@123")
+        
     conn.commit()
     conn.close()
 

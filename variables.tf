@@ -11,12 +11,6 @@ variable "ig_name" {}
 variable "alb_name" {}
 variable "alb_type" {}
 variable "tg_name" {}
-# variable "bastion_host_name" {}
-# variable "bastion_ami" {}
-# variable "bastion_instance" {}
-# variable "launch_temp_name" {}
-# variable "domain" {}
-
 variable "db_name" {}
 variable "db_user" {}
 variable "db_password" {}
@@ -28,3 +22,6 @@ variable "db_root_password" {}
 
 variable "bucket_name" {}
 variable "be_tg_name" {}
+variable "fe_tg_name" {}
+
+variable "cf_name" {}
